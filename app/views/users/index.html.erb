@@ -20,4 +20,7 @@
 image
 name
 showリンク
-
+<% @users.each do |user| %> 
+  <%= user.name %>
+  <%= user.introduction %>
+<% end %> 
