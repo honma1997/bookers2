@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :post_images, only: [:new, :index, :show]
+  resources :post_images
 
   root to: "homes#top"
 

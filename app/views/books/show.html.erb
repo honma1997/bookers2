@@ -1,29 +1,28 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
-userinfo
 画像
-name
-名前
-introducution
-自己紹介
-編集
-newbook
-tittle
-記入欄
-opnion
-記入欄
-createbook
-bookdetail
-tittle
-opinion
-制作者
+<p><strong>name:</strong><%= @current_user.name %>
+<p><strong>introduction:</strong> <%= @current_user.introduction %></p>
+<% if @current_user == current_user %>
+  <%= link_to "プロフィールを編集", edit_user_path(@current_user), class: "btn btn-warning" %>
+else
+  
+<% end %>
 
+newbook
 <%= form_with model: @book do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-	
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-	
-  <%= f.submit '投稿' %>
+ <h4>タイトル</h4>
+ <%= f.text_field :title %>
+ <h4>本文</h4>
+ <%= f.text_area :body %>
+ <%= f.submit '投稿' %>
+<% end %>
+
+bookdetail
+<%= @book.title %>
+<%= @book.body %>
+制作者
+<% if @book_user == current_user %>
+  <%= link_to "編集", edit_book_path(@book), class: "btn btn-warning" %>
+  <%= link_to "削除", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
