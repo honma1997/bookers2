@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
 
+  validates :name, presence: true, uniqueness: true, length: { in: 2..20 } # 一意性 2~20文字
+  validates :introduction, length: { maximum: 50 } #最大50文字
+
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

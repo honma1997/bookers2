@@ -4,7 +4,12 @@
 	    <h2>User info</h2>
 	    <table class='table'>
 	      <tr>
-	        <%= image_tag @current_user.image, size: "150x150" %>  
+				<% if @current_user.image.attached? %>
+				<td><%= image_tag @current_user.image, size: "100x100" %></td>
+			<% else %>
+				<td><%= image_tag "no_image.jpg", size: "100x100" %></td> <!-- 画像がない場合はデフォルト画像 --></td>
+			<% end %>
+
 	      </tr>
 	      <tr>
 	        <th>name</th>
@@ -45,7 +50,14 @@
 	      <tbody>
           <% @users.each do |user| %>
             <tr>
-             <td><%= image_tag @current_user.image %></td>
+						<td>
+						<% if user.image.attached? %>
+							<%= image_tag user.image, size: "100x100" %>
+						<% else %>
+							<%= image_tag "no_image.jpg", size: "100x100" %></td> <!-- 画像がない場合はデフォルト画像 -->
+						<% end %>
+					</td>
+		
              <td><%= user.name %></td>
              <td><%= link_to "Show", user_path(user) %></td>
             </tr>

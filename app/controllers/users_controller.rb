@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = current_user.books
+    @user_image = @user.image
 
   end
 
@@ -23,14 +24,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)  # プロフィール更新
-      redirect_to @user, notice: "プロフィールが更新されました！"
+    if @user.update(user_params)
+      redirect_to @user, notice: "successfully"
     else
-      render :edit  # 失敗したら編集ページを再表示
+      flash.now[:alert] = "error"
+      render :edit
     end
-  
   end
-
   private
 
   def user_params
