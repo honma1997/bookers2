@@ -1,14 +1,18 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
-Editing Book
-<%= form_with model: @book do |f| %>
+<div class='container px-5 px-sm-0'>
+	<div class='row'>
+	  <div class='col-md-3'>
+	    <h2>Editing Book</h2>
+	    <%= form_with model: @book do |f| %>
+	      <div>Title</div>
+	      <div><%= f.text_field :title %></div>
+	      <div>Opinion</div>
+	      <div><%= f.text_area :body %></div>
+	      <div><%= f.submit "Update Book" %></div>
+	    <% end %>
+      <%= link_to "Show", book_path(@book) %>
+      <%= link_to "Back", book_path %>
 
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-  
-  <%= f.submit '保存' %>
-  
-<% end %>
+
+	  </div>
+	</div>
+</div>
