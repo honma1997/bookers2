@@ -13,11 +13,23 @@
   </head>
 
   <body>
-  <%= render 'layouts/header' %>   
-    <main>                           
-     <%= yield %>
-    </main>                          
-    <%= render 'layouts/footer' %>   
+
+  
+    <%= render 'layouts/header' %>   
+      <main>
+      <% if flash[:notice] %>
+      <p style="color: green;"><%= flash[:notice] %></p>  <!-- ✅ 成功メッセージ（緑色） -->
+     <% end %>
+ 
+     <% if flash[:alert] %>
+      <p style="color: red;"><%= flash[:alert] %></p>  <!-- ❌ 失敗メッセージ（赤色） -->
+     <% end %>
+ 
+      
+       <%= yield %>
+      </main>                          
+    <%= render 'layouts/footer' %>
+    
 
   </body>
 </html>

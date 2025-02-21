@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :post_images
 
-  root to: "homes#top"
+  root to: "home#top"
 
-  get 'homes/about', to: 'homes#about', as: :about
+  get 'home/about', to: 'home#about', as: :about
 end
