@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = current_user.books
-    @user_image = @user.image
+    @user_image = @user.profile_image
 
   end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :image)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
   def is_matching_login_user

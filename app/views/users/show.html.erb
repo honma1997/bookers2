@@ -5,7 +5,7 @@
 	    <h2>User info</h2>
 	    <table class='table'>
 	      <tr>
-				<% if @current_user.image.attached? %>
+				<% if @current_user.profile_image.attached? %>
 				<td><%= image_tag @current_user.image, size: "100x100" %></td>
 			<% else %>
 				<td><%= image_tag "no_image.jpg", size: "100x100" %></td> <!-- 画像がない場合はデフォルト画像 --></td>

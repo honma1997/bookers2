@@ -18,7 +18,7 @@ class BooksController < ApplicationController
     @new_book = Book.new
     @books = current_user.books
     @user = @book.user
-    @user_image = @user.image
+    @user_image = @user.profile_image
 
   end
 
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
   private  
 
   def book_params
-    params.require(:book).permit(:title, :body, :image)  
+    params.require(:book).permit(:title, :body, :profile_image)  
   end
 
   def is_matching_login_user
