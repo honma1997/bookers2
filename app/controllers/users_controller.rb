@@ -12,8 +12,8 @@ class UsersController < ApplicationController
 
   def show  
     @user = User.find(params[:id])
-    @book = Book.new
-    @books = current_user.books
+    @new_book = Book.new
+    @books = @user.books
     @user_image = @user.profile_image
 
   end

@@ -1,18 +1,16 @@
 <div class='container px-5 px-sm-0'>
 	<div class='row'>
-	  <div class='col-md-3'>
-	    <h2>Editing Book</h2>
-	    <%= form_with model: @book do |f| %>
-	      <div>Title</div>
-	      <div><%= f.text_field :title %></div>
-	      <div>Opinion</div>
-	      <div><%= f.text_area :body %></div>
-	      <div><%= f.submit "Update Book" %></div>
-	    <% end %>
-      <%= link_to "Show", book_path(@book) %>
-      <%= link_to "Back", book_path %>
-
-
-	  </div>
+		<div class='col-md-3'>
+			<h2>Editing Book</h2>
+			<%= form_with model: @book do |f| %>
+				<div>Title</div>
+				<div><%= f.text_field :title %></div>
+				<div>Opinion</div>
+				<div><%= f.text_area :body %></div>
+				<div><%= f.submit "Update Book" %></div>
+			<% end %>
+			<%= link_to "Show", book_path(@book) %>
+			<%= link_to "Back", books_path %>
+		</div>
 	</div>
 </div>
