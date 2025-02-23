@@ -20,12 +20,27 @@
       <% if flash[:notice] %>
       <p style="color: green;"><%= flash[:notice] %></p>  <!-- ✅ 成功メッセージ（緑色） -->
      <% end %>
- 
-     <% if flash[:alert] %>
-      <p style="color: red;"><%= flash[:alert] %></p>  <!-- ❌ 失敗メッセージ（赤色） -->
-     <% end %>
- 
-      
+    <% unless @book.nil? %>
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>error
+        <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    <% end %> 
+  <% unless @user.nil? %>
+      <% if @user.errors.any? %>
+      <%= @user.errors.count %>error
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      </div>
+    <% end %>
+  <% end %> 
        <%= yield %>
       </main>                          
     <%= render 'layouts/footer' %>
